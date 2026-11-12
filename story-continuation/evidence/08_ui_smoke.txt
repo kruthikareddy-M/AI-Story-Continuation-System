@@ -1,0 +1,23 @@
+=== STAGE 8 STREAMLIT UI SMOKE VERIFICATION ===
+Launching Streamlit server on port 8501...
+Polling http://localhost:8501/_stcore/health...
+Streamlit health endpoint verified: 200 ok (2.13s)
+
+Running tests.test_app_smoke unit tests...
+
+test_app_loads_without_exceptions (tests.test_app_smoke.TestAppSmoke)
+App should initialize without raising unhandled exceptions. ... 2026-11-12 00:28:30.427 WARNING streamlit.runtime.scriptrunner_utils.script_run_context: Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+ok
+test_core_widgets_present (tests.test_app_smoke.TestAppSmoke)
+Verifies text area, buttons, selectbox, and sliders are rendered. ... 2026-11-12 00:28:30.943 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+ok
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.540s
+
+OK
+
+Shutting down Streamlit server...
+Streamlit stopped.
+
+Manual Action Notice: The user must take manual UI screenshots of the running Streamlit app at http://localhost:8501.

@@ -1,0 +1,93 @@
+=== 1. GET /ping ===
+Status: 200
+{
+  "status": "Healthy"
+}
+
+=== 2. GET http://127.0.0.1:8081/models/story_model ===
+Status: 200
+[
+  {
+    "modelName": "story_model",
+    "modelVersion": "1.0",
+    "modelUrl": "story_model.mar",
+    "runtime": "python",
+    "minWorkers": 1,
+    "maxWorkers": 1,
+    "batchSize": 1,
+    "maxBatchDelay": 100,
+    "responseTimeout": 120,
+    "startupTimeout": 120,
+    "maxRetryTimeoutInSec": 300,
+    "clientTimeoutInMills": 0,
+    "parallelType": "",
+    "parallelLevel": 0,
+    "deviceType": "cpu",
+    "continuousBatching": false,
+    "useJobTicket": false,
+    "useVenv": false,
+    "stateful": false,
+    "sequenceMaxIdleMSec": 0,
+    "sequenceTimeoutMSec": 0,
+    "maxNumSequence": 0,
+    "maxSequenceJobQueueSize": 0,
+    "loadedAtStartup": true,
+    "workers": [
+      {
+        "id": "9000",
+        "startTime": "2026-11-12T00:21:54.587Z",
+        "status": "READY",
+        "memoryUsage": 604459008,
+        "pid": 19748,
+        "gpu": false,
+        "gpuUsage": "N/A"
+      }
+    ],
+    "jobQueueStatus": {
+      "remainingCapacity": 100,
+      "pendingRequests": 0
+    }
+  }
+]
+
+=== 3. POST /predictions/story_model (valid request) ===
+Status: 200
+{
+  "prompt": "One day, a student discovered a mysterious box in the college library...",
+  "generated_text": "but didn't get it.\"\n\n\n\"I've been told that this is a computer game, and there's no reason not to try to do anything, but I think it's not a computer game,\" the student said. \"We just thought, 'This is something I've never seen",
+  "settings": {
+    "max_new_tokens": 60,
+    "temperature": 0.8,
+    "top_k": 50,
+    "top_p": 0.95,
+    "seed": 42
+  },
+  "model": "distilgpt2"
+}
+
+=== 4. POST /predictions/story_model (empty prompt) ===
+Status: 200
+{
+  "error": "prompt is required"
+}
+
+=== 5. POST /predictions/story_model (missing prompt) ===
+Status: 200
+{
+  "error": "prompt is required"
+}
+
+=== 6. POST /predictions/story_model (subsequent valid request) ===
+Status: 200
+{
+  "prompt": "The mysterious journey begins",
+  "generated_text": "here.\n\nThe mysterious journey begins here.\nThe mysterious journey begins here.\nThe mysterious journey begins here.\nThe mysterious journey begins here.\nThe mysterious journey begins here.\nThe mysterious journey begins here.\nThe mysterious journey begins here.\nThe mysterious journey begins here.",
+  "settings": {
+    "max_new_tokens": 60,
+    "temperature": 0.8,
+    "top_k": 50,
+    "top_p": 0.95,
+    "seed": null
+  },
+  "model": "distilgpt2"
+}

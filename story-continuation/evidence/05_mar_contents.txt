@@ -1,0 +1,22 @@
+﻿Verified model artifacts in 'model_store\distilgpt2_files'.
+
+Running command: torch-model-archiver --model-name story_model --version 1.0 --serialized-file model_store/distilgpt2_files/model.safetensors --handler torchserve/handler.py --extra-files model_store/distilgpt2_files/config.json,model_store/distilgpt2_files/generation_config.json,model_store/distilgpt2_files/vocab.json,model_store/distilgpt2_files/merges.txt,model_store/distilgpt2_files/tokenizer.json,model_store/distilgpt2_files/tokenizer_config.json,model_store/distilgpt2_files/special_tokens_map.json,generation_config.py --export-path model_store --force
+
+Successfully generated 'model_store\story_model.mar' (291.61 MB)
+
+Verifying archive contents:
+--------------------------------------------------
+  MAR-INF/MANIFEST.json          (0.00 MB)
+  config.json                    (0.00 MB)
+  generation_config.json         (0.00 MB)
+  generation_config.py           (0.00 MB)
+  handler.py                     (0.01 MB)
+  merges.txt                     (0.44 MB)
+  model.safetensors              (312.48 MB)
+  special_tokens_map.json        (0.00 MB)
+  tokenizer.json                 (2.01 MB)
+  tokenizer_config.json          (0.00 MB)
+  vocab.json                     (0.76 MB)
+--------------------------------------------------
+All 11 archive members verified successfully.
+

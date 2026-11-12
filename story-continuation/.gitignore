@@ -1,0 +1,28 @@
+# Virtual environments
+.venv/
+venv/
+ENV/
+
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Model weights and archives (DistilGPT2 weights and MAR binaries)
+model_store/
+*.mar
+*.tar.gz
+
+# Logs and runtime artifacts
+logs/
+*.log
+*.pid
+
+# Environment and sensitive keys
+.env
+*.pem
+*.key
+
+# Operating system files
+.DS_Store
+Thumbs.db

@@ -1,0 +1,116 @@
+=== STAGE 9: RUN RECORD AND BACKEND COMPARISON ===
+Starting TorchServe for backend comparison...
+TorchServe healthy after 12.2s
+
+--- Running run_record.py ---
+Generating run record...
+Successfully generated 'run_record.json':
+{
+  "timestamp_utc": "2026-11-11T19:00:01.775281+00:00",
+  "model": {
+    "name": "distilgpt2",
+    "version": "1.0",
+    "tokenizer_class": "GPT2TokenizerFast",
+    "weights_format": "safetensors"
+  },
+  "environment": {
+    "python_version": "3.10.10",
+    "os_platform": "Windows 10",
+    "device": "cpu",
+    "cuda_available": false
+  },
+  "package_versions": {
+    "torch": "2.4.1+cpu",
+    "transformers": "4.44.2",
+    "torchserve": "0.12.0",
+    "torch_model_archiver": "0.12.0",
+    "streamlit": "1.38.0"
+  },
+  "generation_config": {
+    "defaults": {
+      "max_new_tokens": 60,
+      "temperature": 0.8,
+      "top_k": 50,
+      "top_p": 0.95,
+      "seed": null
+    },
+    "limits": {
+      "max_new_tokens": [
+        10,
+        200
+      ],
+      "temperature": [
+        0.1,
+        1.5
+      ],
+      "top_k": [
+        1,
+        100
+      ],
+      "top_p": [
+        0.1,
+        1.0
+      ],
+      "max_prompt_chars": 500
+    },
+    "presets": {
+      "Short": 40,
+      "Medium": 80,
+      "Long": 150
+    }
+  },
+  "torchserve_configuration": {
+    "mar_file": "story_model.mar",
+    "mar_sha256": "1b4ee68f510b039f96df6fcbcbd82491f1f800e52614561b6d00765af7784053",
+    "inference_address": "http://127.0.0.1:8085",
+    "management_address": "http://127.0.0.1:8081",
+    "metrics_address": "http://127.0.0.1:8082",
+    "default_workers_per_model": 1,
+    "default_response_timeout_sec": 120
+  },
+  "sagemaker": {
+    "endpoint_name": null,
+    "instance_type": null,
+    "container_image": null,
+    "framework_version": null,
+    "region": null
+  }
+}
+
+
+--- Running compare_backends.py ---
+
+===========================================================================
+AI STORY CONTINUATION - BACKEND COMPARISON BENCHMARK
+===========================================================================
+Benchmark Prompt: 'One day, a student discovered a mysterious box in the college library...'
+Settings:         {'max_new_tokens': 60, 'temperature': 0.8, 'top_k': 50, 'top_p': 0.95, 'seed': 42}
+---------------------------------------------------------------------------
+NOTE: With sampling, exact wording may differ slightly across different execution
+environments. This benchmark compares execution status, latency, contract compliance,
+and settings reproduction across backends.
+---------------------------------------------------------------------------
+Running Backend 1: Local PyTorch...
+Running Backend 2: Local TorchServe (http://127.0.0.1:8085/predictions/story_model)...
+Running Backend 3: Amazon SageMaker...
+
+Backend              | Status     | Keys Match  | Latency    | Text Preview (80 chars)
+-------------------------------------------------------------------------------------
+Local PyTorch        | SUCCESS    | True        | 6179.1 ms  | but didn't get it."   "I've been told that this is a computer game, and there's 
+Local TorchServe     | SUCCESS    | True        | 2703.3 ms  | but didn't get it."   "I've been told that this is a computer game, and there's 
+Amazon SageMaker     | SKIPPED    | False       | 0.0 ms     | Skipped: SAGEMAKER_ENDPOINT_NAME env var not set (Part B)
+-------------------------------------------------------------------------------------
+Comparison report saved to: results\comparison.csv
+
+Seeded Output Alignment Analysis (PyTorch CPU vs TorchServe CPU, seed=42):
+MATCH: Local PyTorch and TorchServe outputs are 100% IDENTICAL.
+===========================================================================
+
+
+[2026-11-12 00:30:06] [INFO] Loading model 'distilgpt2' onto device: cpu
+C:\Users\ratha\Desktop\NLP_Project\story-continuation\.venv\lib\site-packages\transformers\tokenization_utils_base.py:1601: FutureWarning: `clean_up_tokenization_spaces` was not set. It will be set to `True` by default. This behavior will be depracted in transformers v4.45, and will be then set to `False` by default. For more details check this issue: https://github.com/huggingface/transformers/issues/31884
+  warnings.warn(
+[2026-11-12 00:30:09] [INFO] Model 'distilgpt2' successfully initialized and cached.
+
+
+Stopping TorchServe...

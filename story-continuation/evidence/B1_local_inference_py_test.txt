@@ -1,0 +1,20 @@
+================================================================================
+EVIDENCE B1: SAGEMAKER LOCAL INFERENCE UNIT TEST (sagemaker/code/inference.py)
+Timestamp: 2026-11-12T08:43:18+05:30
+Command: python -m unittest tests.test_sagemaker_inference_local -v
+================================================================================
+
+[2026-11-12 08:43:08] [INFO] Initializing DistilGPT2 model from directory: model_store\distilgpt2_files
+[2026-11-12 08:43:11] [INFO] DistilGPT2 successfully loaded onto device: cpu
+test_empty_prompt_returns_error (tests.test_sagemaker_inference_local.TestSageMakerInferenceLocal) ... ok
+test_invalid_json_body (tests.test_sagemaker_inference_local.TestSageMakerInferenceLocal) ... ok
+test_missing_prompt_returns_error (tests.test_sagemaker_inference_local.TestSageMakerInferenceLocal) ... ok
+test_valid_request_with_seed_matches_local_inference (tests.test_sagemaker_inference_local.TestSageMakerInferenceLocal) ... ok
+test_wrong_content_type (tests.test_sagemaker_inference_local.TestSageMakerInferenceLocal) ... ok
+
+----------------------------------------------------------------------
+Ran 5 tests in 10.016s
+
+OK
+
+Status: ALL 5 SAGEMAKER INFERENCE TESTS PASSED (100% IDENTICAL OUTPUT WITH SEED)

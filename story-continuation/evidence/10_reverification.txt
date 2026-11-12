@@ -1,0 +1,143 @@
+================================================================================
+EVIDENCE 10: INDEPENDENT RE-VERIFICATION REPORT
+Timestamp: 2026-11-12T01:07:00+05:30
+Environment: Windows 11, PowerShell, Python 3.10.10 (.venv), OpenJDK 17 Temurin
+================================================================================
+
+--------------------------------------------------------------------------------
+TASK 1a: RUNTIME ENVIRONMENT & DEPENDENCY VERSIONS
+--------------------------------------------------------------------------------
+Python: 3.10.10 (tags/v3.10.10:aad5f6a, Feb  7 2023, 17:20:36) [MSC v.1929 64 bit (AMD64)]
+PyTorch: 2.4.1+cpu
+Transformers: 4.44.2
+TorchServe: 0.12.0
+Archiver: 0.12.0
+Streamlit: 1.38.0
+openjdk version "17.0.19" 2026-04-21
+OpenJDK Runtime Environment Temurin-17.0.19+10 (build 17.0.19+10)
+OpenJDK 64-Bit Server VM Temurin-17.0.19+10 (build 17.0.19+10, mixed mode, sharing)
+
+--------------------------------------------------------------------------------
+TASK 1b: UNIT TEST DISCOVERY EXECUTION (python -m unittest discover tests -v)
+--------------------------------------------------------------------------------
+OpenVINO is not enabled
+proceeding without onnxruntime
+Torch TensorRT not enabled
+skipped "TorchServe server is not reachable at 'http://127.0.0.1:8085/predictions/story_model'. Start TorchServe before running integration tests."
+test_app_loads_without_exceptions (test_app_smoke.TestAppSmoke) ... ok
+test_core_widgets_present (test_app_smoke.TestAppSmoke) ... ok
+skipped "TorchServe server is not reachable at 'http://127.0.0.1:8085/predictions/story_model'. Start TorchServe before running edge case tests."
+test_inference_and_postprocess_contract (test_handler_unit.TestStoryContinuationHandlerUnit) ... ok
+test_preprocess_bad_json (test_handler_unit.TestStoryContinuationHandlerUnit) ... ok
+test_preprocess_bytes_body (test_handler_unit.TestStoryContinuationHandlerUnit) ... ok
+test_preprocess_dict_body (test_handler_unit.TestStoryContinuationHandlerUnit) ... ok
+test_preprocess_empty_prompt (test_handler_unit.TestStoryContinuationHandlerUnit) ... ok
+test_preprocess_str_body (test_handler_unit.TestStoryContinuationHandlerUnit) ... ok
+test_default_cli_args (test_inference.TestCLIArgs) ... ok
+test_empty_prompt_returns_error (test_inference.TestLocalInference) ... ok
+test_mocked_generate_structure (test_inference.TestLocalInference) ... ok
+test_whitespace_prompt_returns_error (test_inference.TestLocalInference) ... ok
+test_max_new_tokens_bounds_and_types (test_validation.TestRequestValidation) ... ok
+test_missing_or_empty_prompt (test_validation.TestRequestValidation) ... ok
+test_non_dict_body (test_validation.TestRequestValidation) ... ok
+test_prompt_not_string (test_validation.TestRequestValidation) ... ok
+test_prompt_stripping_and_defaults (test_validation.TestRequestValidation) ... ok
+test_prompt_too_long (test_validation.TestRequestValidation) ... ok
+test_seed_bounds_and_types (test_validation.TestRequestValidation) ... ok
+test_temperature_bounds_and_types (test_validation.TestRequestValidation) ... ok
+test_top_k_bounds_and_types (test_validation.TestRequestValidation) ... ok
+test_top_p_bounds_and_types (test_validation.TestRequestValidation) ... ok
+
+----------------------------------------------------------------------
+Ran 22 tests in 4.408s
+OK (skipped=2)
+
+--------------------------------------------------------------------------------
+TASK 1c: FRESH ORCHESTRATION PIPELINE RUN (python orchestrate.py --skip-download)
+--------------------------------------------------------------------------------
+===========================================================================
+STORY CONTINUATION SYSTEM - AUTOMATED LOCAL ORCHESTRATION PIPELINE
+===========================================================================
+
+[Step 1/8] Checking System and Runtime Environment...
+
+[Step 2/8] Executing Unit Test Suites...
+  Running tests.test_validation...
+  Running tests.test_handler_unit...
+  Running tests.test_app_smoke...
+
+[Step 3/8] Saving Model and Tokenizer Weights...
+
+[Step 4/8] Packaging Model Archive (.mar)...
+Verified model artifacts in 'model_store\distilgpt2_files'.
+
+Running command: C:\Users\ratha\Desktop\NLP_Project\story-continuation\.venv\Scripts\torch-model-archiver.exe --model-name story_model --version 1.0 --serialized-file model_store/distilgpt2_files/model.safetensors --handler torchserve/handler.py --extra-files model_store/distilgpt2_files/config.json,model_store/distilgpt2_files/generation_config.json,model_store/distilgpt2_files/vocab.json,model_store/distilgpt2_files/merges.txt,model_store/distilgpt2_files/tokenizer.json,model_store/distilgpt2_files/tokenizer_config.json,model_store/distilgpt2_files/special_tokens_map.json,generation_config.py --export-path model_store --force
+
+Successfully generated 'model_store\story_model.mar' (291.61 MB)
+
+Verifying archive contents:
+--------------------------------------------------
+  MAR-INF/MANIFEST.json          (0.00 MB)
+  config.json                    (0.00 MB)
+  generation_config.json         (0.00 MB)
+  generation_config.py           (0.00 MB)
+  handler.py                     (0.01 MB)
+  merges.txt                     (0.44 MB)
+  model.safetensors              (312.48 MB)
+  special_tokens_map.json        (0.00 MB)
+  tokenizer.json                 (2.01 MB)
+  tokenizer_config.json          (0.00 MB)
+  vocab.json                     (0.76 MB)
+--------------------------------------------------
+All 11 archive members verified successfully.
+
+
+[Step 5/8] Starting TorchServe Server...
+  Launching TorchServe...
+  TorchServe healthy after 13.8s.
+
+[Step 6/8] Running Integration Test Suite...
+
+[Step 7/8] Running Backend Comparison Benchmark...
+
+[Step 8/8] Generating Execution Run Record...
+
+[Teardown] Shutting Down TorchServe Server...
+  Stopping TorchServe...
+
+================================================================================
+FINAL ORCHESTRATION PIPELINE SUMMARY
+================================================================================
+Pipeline Step                | Status   | Details
+--------------------------------------------------------------------------------
+1. Environment Check         | PASS     | Python 3.10.10 | PyTorch 2.4.1+cpu | Transformers 4.44.2 | TorchServe 0.12.0
+2. Unit Tests                | PASS     | All 3 unit test suites passed.
+3. Save Model                | PASS     | Model files verified (download skipped as requested).
+4. Build MAR                 | PASS     | story_model.mar packaged successfully (291.61 MB).
+5. TorchServe Startup        | PASS     | Healthy on port 8085
+6. Integration Tests         | PASS     | All 31 test requests passed
+7. Backend Comparison        | PASS     | Comparison CSV generated
+8. Run Record                | PASS     | run_record.json generated
+================================================================================
+
+>>> ALL LOCAL ORCHESTRATION PIPELINE STEPS PASSED SUCCESSFULLY! <<<
+
+Project Java processes left running: ZERO (confirmed PID 8968 is system Jenkins service).
+
+--------------------------------------------------------------------------------
+TASK 1d: ARCHIVE CONTENTS VERIFICATION (story_model.mar - 11 MEMBERS)
+--------------------------------------------------------------------------------
+1.  MAR-INF/MANIFEST.json
+2.  config.json
+3.  generation_config.json
+4.  generation_config.py
+5.  handler.py
+6.  merges.txt
+7.  model.safetensors
+8.  special_tokens_map.json
+9.  tokenizer.json
+10. tokenizer_config.json
+11. vocab.json
+
+Total members: 11
+Status: VERIFIED & CONFIRMED

@@ -1,0 +1,31 @@
+﻿python : test_max_new_tokens_bounds_and_types (tests.test_validation.TestRequestValidation)
+At line:2 char:2
++ (python -m unittest tests.test_validation -v 2>&1) | Out-File -FilePa ...
++  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (test_max_new_to...uestValidation):String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+max_new_tokens validation: booleans rejected, integers bounded 10..200. ... ok
+test_missing_or_empty_prompt (tests.test_validation.TestRequestValidation)
+Missing, null, empty, or whitespace-only prompts must return 'prompt is required'. ... ok
+test_non_dict_body (tests.test_validation.TestRequestValidation)
+Requests that are not JSON objects / dictionaries must be rejected. ... ok
+test_prompt_not_string (tests.test_validation.TestRequestValidation)
+Non-string prompt types must be rejected. ... ok
+test_prompt_stripping_and_defaults (tests.test_validation.TestRequestValidation)
+Valid prompts must be stripped, and missing optional parameters filled with defaults. ... ok
+test_prompt_too_long (tests.test_validation.TestRequestValidation)
+Prompts exceeding MAX_PROMPT_CHARS must be rejected. ... ok
+test_seed_bounds_and_types (tests.test_validation.TestRequestValidation)
+seed validation: boolean rejected, strings rejected, integer accepted. ... ok
+test_temperature_bounds_and_types (tests.test_validation.TestRequestValidation)
+temperature validation: booleans rejected, numbers bounded 0.1..1.5. ... ok
+test_top_k_bounds_and_types (tests.test_validation.TestRequestValidation)
+top_k validation: booleans rejected, integers bounded 1..100. ... ok
+test_top_p_bounds_and_types (tests.test_validation.TestRequestValidation)
+top_p validation: booleans rejected, floats bounded 0.1..1.0. ... ok
+
+----------------------------------------------------------------------
+Ran 10 tests in 0.001s
+
+OK

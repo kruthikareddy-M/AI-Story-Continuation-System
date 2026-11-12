@@ -1,0 +1,34 @@
+
+======================================================================
+TORCHSERVE INTEGRATION TEST BENCHMARK SUMMARY
+======================================================================
+Total Requests Executed:    31
+Successful Generations:     24
+Expected Error Responses:   7
+----------------------------------------------------------------------
+Warm-up Request Latency:    8744.59 ms
+Subsequent Average Latency: 2252.86 ms
+Min Latency / Max Latency:  18.52 ms / 8744.59 ms
+Detailed CSV exported to:   results\test_results.csv (31 rows)
+======================================================================
+
+
+test_assignment_case_1_short (tests.test_api.TestStoryContinuationAPI)
+Case 1: Mystery box with Short length (40 tokens). ... ok
+test_assignment_case_2_long (tests.test_api.TestStoryContinuationAPI)
+Case 2: Robot classroom with Long length (150 tokens). ... ok
+test_assignment_case_3_temperature_comparison (tests.test_api.TestStoryContinuationAPI)
+Case 3: Dark rainy night at temp 0.3 and 1.2 with identical seed. ... ok
+test_error_empty_prompt (tests.test_api.TestStoryContinuationAPI) ... ok
+test_error_missing_prompt (tests.test_api.TestStoryContinuationAPI) ... ok
+test_error_non_string_prompt (tests.test_api.TestStoryContinuationAPI) ... ok
+test_error_out_of_range_max_new_tokens (tests.test_api.TestStoryContinuationAPI) ... ok
+test_error_out_of_range_temperature (tests.test_api.TestStoryContinuationAPI) ... ok
+test_error_prompt_over_max_chars (tests.test_api.TestStoryContinuationAPI) ... ok
+test_error_whitespace_prompt (tests.test_api.TestStoryContinuationAPI) ... ok
+test_ten_prompts_at_two_lengths (tests.test_api.TestStoryContinuationAPI) ... ok
+
+----------------------------------------------------------------------
+Ran 11 tests in 76.363s
+
+OK

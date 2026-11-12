@@ -1,0 +1,28 @@
+# ==============================================================================
+# Story Continuation - Dependencies (CPU / nvgpu-free)
+# ==============================================================================
+# PyTorch CPU repository: fetches CPU wheels free from CUDA/NVIDIA binaries
+--extra-index-url https://download.pytorch.org/whl/cpu
+
+# PyTorch (pinned to 2.4.1 for strict TorchServe 0.12.0 compatibility)
+# Linux & Windows use the dedicated +cpu wheel to avoid heavy nvidia-* packages (~2.5GB).
+# macOS installs standard CPU/MPS wheels directly from PyPI (no NVIDIA packages exist).
+torch==2.4.1+cpu; sys_platform != "darwin"
+torch==2.4.1; sys_platform == "darwin"
+
+# TorchServe and Model Archiving Tools
+torchserve==0.12.0
+torch-model-archiver==0.12.0
+torch-workflow-archiver==0.2.15
+
+# Hugging Face Transformers for text generation / story continuation
+transformers==4.44.2
+
+# Interactive Web Application
+streamlit==1.38.0
+
+# HTTP client for TorchServe REST endpoints
+requests==2.32.3
+
+# AWS SDK (optional cloud storage / S3 integration)
+boto3==1.35.36

@@ -1,0 +1,27 @@
+﻿python : C:\Users\ratha\Desktop\NLP_Project\story-continuation\.venv\lib\site-packages\transformers\tokenization_utils_
+base.py:1601: FutureWarning: `clean_up_tokenization_spaces` was not set. It will be set to `True` by default. This 
+behavior will be depracted in transformers v4.45, and will be then set to `False` by default. For more details check 
+this issue: https://github.com/huggingface/transformers/issues/31884
+At line:2 char:2
++ (python save_model.py 2>&1) | Out-File -FilePath "evidence\03_saved_m ...
++  ~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (C:\Users\ratha\...rs/issues/31884:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+  warnings.warn(
+Downloading and saving 'distilgpt2' to 'model_store\distilgpt2_files'...
+Successfully serialized 'distilgpt2' to 'model_store\distilgpt2_files'.
+
+Saved Model Files:
+--------------------------------------------------
+  config.json                    (0.00 MB)
+  generation_config.json         (0.00 MB)
+  merges.txt                     (0.44 MB)
+  model.safetensors              (312.48 MB)
+  special_tokens_map.json        (0.00 MB)
+  tokenizer.json                 (2.01 MB)
+  tokenizer_config.json          (0.00 MB)
+  vocab.json                     (0.76 MB)
+--------------------------------------------------
+Total Directory Size: 315.69 MB
+

@@ -1,0 +1,106 @@
+﻿python : [2026-11-11 21:50:35] [INFO] Loading model 'distilgpt2' onto device: cpu
+At line:3 char:9
++ $v2 += (python local_inference.py --demo 2>&1)
++         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: ([2026-11-11 21:...nto device: cpu:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+C:\Users\ratha\Desktop\NLP_Project\story-continuation\.venv\lib\site-packages\transformers\tokenization_utils_base.py:1
+601: FutureWarning: `clean_up_tokenization_spaces` was not set. It will be set to `True` by default. This behavior 
+will be depracted in transformers v4.45, and will be then set to `False` by default. For more details check this 
+issue: https://github.com/huggingface/transformers/issues/31884
+  warnings.warn(
+[2026-11-11 21:50:36] [INFO] Model 'distilgpt2' successfully initialized and cached.
+
+======================================================================
+RUNNING DEMO: 3 Prompts x 2 Temperatures (0.3 deterministic, 1.2 creative)
+======================================================================
+
+--- [Demo 1/6] Temp: 0.3 ---
+Prompt: In a quiet forest observatory, the radio dish suddenly detected
+Continuation: a strange sound. The radio dish was in the middle of a forest in the middle of a forest in the middle of a forest in the middle of a forest in the middle of a forest in the middle of a forest in the middle of a forest
+
+--- [Demo 2/6] Temp: 1.2 ---
+Prompt: In a quiet forest observatory, the radio dish suddenly detected
+Continuation: pulsating beams of black smoke, which were then sent back again over the edge of a dark forest called Yandah, just north of the main train. On November 20, when the signal began to come from the radio frequency's broadcast link,
+
+--- [Demo 3/6] Temp: 0.3 ---
+Prompt: The apprentice opened the forbidden spellbook, only to find
+Continuation: that the spellbook had been corrupted.
+
+--- [Demo 4/6] Temp: 1.2 ---
+Prompt: The apprentice opened the forbidden spellbook, only to find
+Continuation: out his full name had been stolen.
+
+
+
+- The apprentice drew the fire into a burning blaze.
+This was the most horrific part of his journey, and, in what they had learned, only to be found to be something more
+
+--- [Demo 5/6] Temp: 0.3 ---
+Prompt: Deep beneath the ocean floor, an autonomous research submarine discovered
+Continuation: a new type of oceanic oceanic oceanic oceanic oceanic oceanic oceanic oceanic oceanic oceanic oceanic oceanic oceanic oceanic oceanic oceanic oceanic oceanic oceanic oceanic oceanic oceanic oceanic
+
+--- [Demo 6/6] Temp: 1.2 ---
+Prompt: Deep beneath the ocean floor, an autonomous research submarine discovered
+Continuation: off the coast of the South China Sea on Tuesday, March 3 (Reuters) - China is trying to build a ship capable of transporting cargo back to mainland China to transport around 500 tonnes of illegal coal, an industry experts said on Tuesday.
+
+======================================================================
+
+python : [2026-11-11 21:50:45] [INFO] Loading model 'distilgpt2' onto device: cpu
+At line:4 char:9
++ $v2 += (python local_inference.py --prompt "One day, a student discov ...
++         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: ([2026-11-11 21:...nto device: cpu:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+C:\Users\ratha\Desktop\NLP_Project\story-continuation\.venv\lib\site-packages\transformers\tokenization_utils_base.py:1
+601: FutureWarning: `clean_up_tokenization_spaces` was not set. It will be set to `True` by default. This behavior 
+will be depracted in transformers v4.45, and will be then set to `False` by default. For more details check this 
+issue: https://github.com/huggingface/transformers/issues/31884
+  warnings.warn(
+[2026-11-11 21:50:46] [INFO] Model 'distilgpt2' successfully initialized and cached.
+
+PROMPT:
+One day, a student discovered a mysterious box in the college library...
+--------------------------------------------------
+GENERATED CONTINUATION:
+but didn't get it."
+
+
+"I've been told that this is a computer game, and there's no reason not to try to do anything, but I think it's not a computer game," the student said. "We just thought, 'This is something I've never seen
+--------------------------------------------------
+Model: distilgpt2 | Settings: {'max_new_tokens': 60, 'temperature': 0.8, 'top_k': 50, 'top_p': 0.95, 'seed': 42}
+
+python : [2026-11-11 21:50:51] [INFO] Loading model 'distilgpt2' onto device: cpu
+At line:5 char:9
++ $v2 += (python local_inference.py --prompt "One day, a student discov ...
++         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: ([2026-11-11 21:...nto device: cpu:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+C:\Users\ratha\Desktop\NLP_Project\story-continuation\.venv\lib\site-packages\transformers\tokenization_utils_base.py:1
+601: FutureWarning: `clean_up_tokenization_spaces` was not set. It will be set to `True` by default. This behavior 
+will be depracted in transformers v4.45, and will be then set to `False` by default. For more details check this 
+issue: https://github.com/huggingface/transformers/issues/31884
+  warnings.warn(
+[2026-11-11 21:50:52] [INFO] Model 'distilgpt2' successfully initialized and cached.
+
+PROMPT:
+One day, a student discovered a mysterious box in the college library...
+--------------------------------------------------
+GENERATED CONTINUATION:
+but didn't get it."
+
+
+"I've been told that this is a computer game, and there's no reason not to try to do anything, but I think it's not a computer game," the student said. "We just thought, 'This is something I've never seen
+--------------------------------------------------
+Model: distilgpt2 | Settings: {'max_new_tokens': 60, 'temperature': 0.8, 'top_k': 50, 'top_p': 0.95, 'seed': 42}
+
+python : Error: prompt is required
+At line:6 char:9
++ $v2 += (python local_inference.py --prompt "" 2>&1)
++         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (Error: prompt is required:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 

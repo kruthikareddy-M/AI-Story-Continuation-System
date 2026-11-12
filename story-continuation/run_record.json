@@ -1,0 +1,71 @@
+{
+  "timestamp_utc": "2026-11-11T19:37:05.562507+00:00",
+  "model": {
+    "name": "distilgpt2",
+    "version": "1.0",
+    "tokenizer_class": "GPT2TokenizerFast",
+    "weights_format": "safetensors"
+  },
+  "environment": {
+    "python_version": "3.10.10",
+    "os_platform": "Windows 10",
+    "device": "cpu",
+    "cuda_available": false
+  },
+  "package_versions": {
+    "torch": "2.4.1+cpu",
+    "transformers": "4.44.2",
+    "torchserve": "0.12.0",
+    "torch_model_archiver": "0.12.0",
+    "streamlit": "1.38.0"
+  },
+  "generation_config": {
+    "defaults": {
+      "max_new_tokens": 60,
+      "temperature": 0.8,
+      "top_k": 50,
+      "top_p": 0.95,
+      "seed": null
+    },
+    "limits": {
+      "max_new_tokens": [
+        10,
+        200
+      ],
+      "temperature": [
+        0.1,
+        1.5
+      ],
+      "top_k": [
+        1,
+        100
+      ],
+      "top_p": [
+        0.1,
+        1.0
+      ],
+      "max_prompt_chars": 500
+    },
+    "presets": {
+      "Short": 40,
+      "Medium": 80,
+      "Long": 150
+    }
+  },
+  "torchserve_configuration": {
+    "mar_file": "story_model.mar",
+    "mar_sha256": "07a0ef400892cdf34f4d1a54af44d6561fdceb042bf9405eb40efa7a5b9fde3d",
+    "inference_address": "http://127.0.0.1:8085",
+    "management_address": "http://127.0.0.1:8081",
+    "metrics_address": "http://127.0.0.1:8082",
+    "default_workers_per_model": 1,
+    "default_response_timeout_sec": 120
+  },
+  "sagemaker": {
+    "endpoint_name": null,
+    "instance_type": null,
+    "container_image": null,
+    "framework_version": null,
+    "region": null
+  }
+}

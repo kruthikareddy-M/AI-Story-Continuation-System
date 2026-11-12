@@ -1,0 +1,26 @@
+﻿python : OpenVINO is not enabled
+At line:2 char:2
++ (python -m unittest tests.test_handler_unit -v 2>&1) | Out-File -File ...
++  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (OpenVINO is not enabled:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+proceeding without onnxruntime
+Torch TensorRT not enabled
+test_inference_and_postprocess_contract (tests.test_handler_unit.TestStoryContinuationHandlerUnit)
+Verifies full inference contract with mocked model and tokenizer. ... ok
+test_preprocess_bad_json (tests.test_handler_unit.TestStoryContinuationHandlerUnit)
+Malformed JSON strings must produce an 'invalid JSON body' error. ... ok
+test_preprocess_bytes_body (tests.test_handler_unit.TestStoryContinuationHandlerUnit)
+Preprocess must correctly decode utf-8 bytes payloads. ... ok
+test_preprocess_dict_body (tests.test_handler_unit.TestStoryContinuationHandlerUnit)
+Preprocess must accept pre-parsed dict objects. ... ok
+test_preprocess_empty_prompt (tests.test_handler_unit.TestStoryContinuationHandlerUnit)
+Empty prompts must fail validation and return 'prompt is required'. ... ok
+test_preprocess_str_body (tests.test_handler_unit.TestStoryContinuationHandlerUnit)
+Preprocess must parse valid JSON strings. ... ok
+
+----------------------------------------------------------------------
+Ran 6 tests in 0.030s
+
+OK

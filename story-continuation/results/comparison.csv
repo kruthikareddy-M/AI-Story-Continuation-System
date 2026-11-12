@@ -1,0 +1,4 @@
+backend,status,keys_match,settings_echoed,latency_ms,text_preview
+Local PyTorch,SUCCESS,True,"{'max_new_tokens': 60, 'temperature': 0.8, 'top_k': 50, 'top_p': 0.95, 'seed': 42}",6902.3,"but didn't get it.""   ""I've been told that this is a computer game, and there's "
+Local TorchServe,SUCCESS,True,"{'max_new_tokens': 60, 'temperature': 0.8, 'top_k': 50, 'top_p': 0.95, 'seed': 42}",3200.04,"but didn't get it.""   ""I've been told that this is a computer game, and there's "
+Amazon SageMaker,SKIPPED,False,,0.0,Skipped: SAGEMAKER_ENDPOINT_NAME env var not set (Part B)
